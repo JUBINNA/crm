@@ -1,0 +1,15 @@
+
+#python
+*.pyc
+
+#Android
+gen
+bin
+.classpath
+.settings
+
+#Eclipse
+
+
+#Xcode
+.DS_Store
