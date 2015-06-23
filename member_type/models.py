@@ -9,15 +9,13 @@ LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
 STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 
-class Member(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
+class MemberType(models.Model):
     uid = models.CharField(max_length=20, blank=False)
-    uname = models.CharField(max_length=50, blank=False)
-    age = models.IntegerField(blank=False)
-    tel = models.CharField(max_length=15, blank=True, default='')
-    address = models.CharField(max_length=100, blank=True, default='')
-    birthday = models.DateTimeField(blank=True)
-    linenos = models.BooleanField(default=False)
+    group = models.CharField(max_length=50, blank=False)
+    fallow = models.CharField(max_length=20, blank=False)
+    utype = models.CharField(max_length=20, blank=True)
+    memo = serializers.CharField()
+	linenos = models.BooleanField(default=False)
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
     style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
 
