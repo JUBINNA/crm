@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from django.db import models
 
 # Create your models here.
@@ -14,10 +15,9 @@ class MemberType(models.Model):
     group = models.CharField(max_length=50, blank=False)
     fallow = models.CharField(max_length=20, blank=False)
     utype = models.CharField(max_length=20, blank=True)
-    memo = serializers.CharField()
-	linenos = models.BooleanField(default=False)
+    memo = models.TextField()
+    linenos = models.BooleanField(default=False)
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
-    style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
 
     class Meta:
-        ordering = ('uname', 'created')
+        ordering = ('utype', 'group')

@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from django.db import models
 
 # Create your models here.
@@ -14,12 +15,11 @@ class Member(models.Model):
     uid = models.CharField(max_length=20, blank=False)
     uname = models.CharField(max_length=50, blank=False)
     age = models.IntegerField(blank=False)
-    tel = models.CharField(max_length=15, blank=True, default='')
+    phone = models.CharField(max_length=15, blank=True, default='')
     address = models.CharField(max_length=100, blank=True, default='')
     birthday = models.DateTimeField(blank=True)
     linenos = models.BooleanField(default=False)
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
-    style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
-
+ 
     class Meta:
         ordering = ('uname', 'created')

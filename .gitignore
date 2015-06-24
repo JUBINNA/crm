@@ -14,6 +14,7 @@
 # python 
 *.pyc
 #*.sqlite3
+**/migrations/
 
 ###
 #Android
