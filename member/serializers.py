@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 from django.forms import widgets
 from rest_framework import serializers
-from member.models import Member, LANGUAGE_CHOICES, STYLE_CHOICES
+from member.models import Member
 
 
 class MemberSerializer(serializers.Serializer):
