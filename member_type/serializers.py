@@ -11,8 +11,6 @@ class MemberTypeSerializer(serializers.Serializer):
     fallow = serializers.CharField(required=False, allow_blank=True, max_length=20)
     group = serializers.CharField(required=False, allow_blank=False, max_length=50)
     memo = serializers.CharField(style={'base_template': 'textarea.html'})
-    linenos = serializers.BooleanField(required=False)
-    language = serializers.ChoiceField(choices=LANGUAGE_CHOICES, default='python')
 
     def create(self, validated_data):
         """
@@ -29,8 +27,6 @@ class MemberTypeSerializer(serializers.Serializer):
         instance.fallow = validated_data.get('fallow', instance.fallow)
         instance.group = validated_data.get('group', instance.group)
         instance.memo = validated_data.get('memo', instance.memo)
-        instance.linenos = validated_data.get('linenos', instance.linenos)
-        instance.language = validated_data.get('language', instance.language)
         instance.save()
         return instance
 

@@ -12,8 +12,6 @@ class MemberSerializer(serializers.Serializer):
     phone = serializers.CharField(required=False, allow_blank=True, max_length=15)
     address = serializers.CharField(required=False, allow_blank=True, max_length=100)
     birthday = serializers.DateTimeField(required=False)
-    linenos = serializers.BooleanField(required=False)
-    language = serializers.ChoiceField(choices=LANGUAGE_CHOICES, default='python')
 
     def create(self, validated_data):
         """
@@ -31,8 +29,6 @@ class MemberSerializer(serializers.Serializer):
         instance.phone = validated_data.get('phone', instance.phone)
         instance.address = validated_data.get('address', instance.address)
         instance.birthday = validated_data.get('birthday', instance.birthday)
-        instance.linenos = validated_data.get('linenos', instance.linenos)
-        instance.language = validated_data.get('language', instance.language)
         instance.save()
         return instance
 
